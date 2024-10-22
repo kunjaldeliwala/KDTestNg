@@ -1,0 +1,31 @@
+{
+  "total": 5,
+  "pass": 5,
+  "fail": 0,
+  "skip": 0,
+  "classes": [
+    "com.qmetry.testng_demo.CalculatorTest"
+  ],
+  "envInfo": {
+    "browser-actual-capabilities": {},
+    "isfw-build-info": {
+      "qaf-Type": "core",
+      "qaf-Revision": "13",
+      "qaf-Version": "2.1",
+      "qaf-Build-Time": "20-Feb-2018 00:19:29"
+    },
+    "run-parameters": {},
+    "execution-env-info": {
+      "java.arch": "64",
+      "java.vendor": "Oracle Corporation",
+      "java.version": "1.8.0_161",
+      "os.arch": "amd64",
+      "host": "ICPL12979",
+      "os.name": "Windows 10",
+      "user.name": "nidhi.shah",
+      "os.version": "10.0"
+    }
+  },
+  "startTime": 1539091540909,
+  "endTime": 1539091541116
+}

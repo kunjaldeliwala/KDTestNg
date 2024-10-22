@@ -1,0 +1,110 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<!-- https://qmetrysupport.atlassian.net/wiki/spaces/QTMFJC/pages/441778190/Import+Results+using+Maven+Plugin+for+QAF -->
+	<!-- https://github.com/qmetry/qmetry-test-management-maven-plugin -->
+	<groupId>com.qmetry</groupId>
+	<artifactId>testng-java-example</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<repositories>
+		<repository>
+			<id>qmetrytestmanager-mvn-repo</id>
+			<name>QMetry Test Manager Maven Repository</name>
+			<url>https://raw.github.com/qmetry/qtm4j-maven-uploader/mvn-repo/</url>
+		</repository>
+		<repository>
+			<id>qaf</id>
+			<url>https://qmetry.github.io/qaf/dist</url>
+		</repository>
+		<repository>
+			<id>jai</id>
+			<url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>qmetry-test-management-maven-plugin-mvn-repo</id>
+			<url>https://raw.github.com/qmetry/qmetry-test-management-maven-plugin/mvn-repo/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.0</version>
+				<configuration>
+					<properties>
+						<property>
+							<name>listener</name>
+							<value>com.qmetry.automation.QASResultUploader</value>
+						</property>
+					</properties>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.qmetry</groupId>
+				<artifactId>qmetry-test-management-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<configuration>
+					<url>https://testmanagement.qmetry.com</url>
+					<apikey>zEzs7iy7D8ARWX8xMFzJRZTzb66W0LCyaK6xde</apikey>
+					<filepath>test-results/</filepath>
+					<format>qas/json</format>
+					<project>
+						Demo Project
+					</project>
+					<release>Demo Release</release>
+					<cycle>Demo Cycle</cycle>
+					<build>Demo Build</build>
+					<testsuite>Testsuite Key</testsuite>
+					<platform>Demo Platform</platform>
+				</configuration>
+
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<packaging>jar</packaging>
+
+	<name>testng-demo</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.qmetry</groupId>
+			<artifactId>automation</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.8</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.qmetry</groupId>
+			<artifactId>qaf</artifactId>
+			<version>2.1.13</version>
+		</dependency>
+		<dependency>
+			<groupId>com.qmetry</groupId>
+			<artifactId>qaf-support</artifactId>
+			<version>2.1.13</version>
+		</dependency>
+
+	</dependencies>
+</project>
